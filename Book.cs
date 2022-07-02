@@ -6,13 +6,28 @@ using System.Threading.Tasks;
 
 namespace csharp_biblioteca
 {
-    internal class Book : Product
+    internal class Book : Item
     {
-        protected int nPage;
-
-        public Book (int code, string title, int releaseYear, string section, bool available, int rack, string author, int nPage) : base(code, title, releaseYear, section, available, rack, author)
+        public string Isbn
         {
-            this.nPage = nPage;
+            get
+            {
+                return base.Code;
+            }
+            set
+            {
+                base.Code = value;
+            }
         }
+
+        public int NPage { get; private set; }
+
+
+        public Book (string isbn, string title, int releaseYear, string section, bool available, int rack, string author, int nPage) : base(isbn, title, releaseYear, section, available, rack, author)
+        {
+            this.Isbn = Isbn;
+            this.NPage = nPage;
+        }
+
     }
 }

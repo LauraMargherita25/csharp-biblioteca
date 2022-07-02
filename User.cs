@@ -8,19 +8,20 @@ namespace csharp_biblioteca
 {
     internal class User
     {
-        protected string surname;
-        protected string name;
-        protected string email;
-        protected string password;
-        protected int telphone;
-
-        public User(string surname, string name, string email, string password, int telphone)
+        public string Surname { get; private set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public uint Telphone { get; set; }
+        
+        public User(string surname, string name, string email, string password, uint telphone)
         {
-            this.surname = surname; 
-            this.name = name;
-            this.email = email; 
-            this.password = password;
-            this.telphone = telphone;
+            this.Surname = surname; 
+            this.Name = name;
+            this.Email = email; 
+            this.Password = password;
+            this.Telphone = telphone;
         }
+
     }
 }
