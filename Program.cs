@@ -1,12 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using csharp_biblioteca;
-//List<Book> products = new List<Book>();
-//Book cimeTempestose = new Book(1234567, "Cime Tempestose", 1847, "Classici", true, 32, "Emily Brontë", 100);
 
-//products.Add(cimeTempestose);
-//Library BibliotecaOnline = new Library();
-
-//BibliotecaOnline.OpenLibrary();
 
 
 //User rossiCaio = new User("Rossi", "Caio", "rossi@caio.com", "rossi", 1234567);
@@ -34,3 +28,7 @@ User utente2 = new User("Bianchi", "Rosa", "rosa@bianchi.it", "asdfqwer", 345295
 bibliotecaOnline.AddNewUser(utente2);
 User utente3 = new User("Verdi", "Luca", "luca@verdi.it", "forzajuve", 3973456263);
 bibliotecaOnline.AddNewUser(utente1);
+
+bibliotecaOnline.OpenLibrary();
+
+bibliotecaOnline.MenuSignupOrLogin();
