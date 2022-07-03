@@ -13,7 +13,7 @@ namespace csharp_biblioteca
         public string Title { get; protected set; }
         public int ReleaseYear { get; protected set; }
         public string Section { get; protected set; } 
-        public bool Available { get; protected set; }  
+        public bool Available { get; set; }  
         public int Rack { get; protected set; }   
         public string Author { get; protected set; }
 

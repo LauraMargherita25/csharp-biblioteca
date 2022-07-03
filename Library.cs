@@ -10,6 +10,7 @@ namespace csharp_biblioteca
     {
         List<Item> products = new List<Item>();
         List<User> users = new List<User>();
+        List<Lendal> landals = new List<Lendal>();
         public void OpenLibrary()
         {
             Console.WriteLine("Benvenuto nella Biblioteca Online");
@@ -26,7 +27,7 @@ namespace csharp_biblioteca
             this.users.Add(newUser);
         }
 
-        internal void MenuSignupOrLogin()
+        public void MenuSignupOrLogin()
         {
             Console.WriteLine("Sei già registrato?");
 
@@ -124,7 +125,11 @@ namespace csharp_biblioteca
                         } 
                         else if (inputUserResearch == "2")
                         {
-
+                            this.LandItem(product);
+                        }
+                        else if (inputUserResearch == "3")
+                        {
+                            this.ReturnItem(product);
                         }
                     }
                 }
@@ -137,23 +142,33 @@ namespace csharp_biblioteca
 
             }while (notFound);
 
-
-            //foreach (Item product in this.products)
-            //{
-            //    if (inputUserResearch == product.Title)
-            //    {
-            //        Console.WriteLine("Prodotto Trovato");
-            //        product.PrintItem();
-            //        return;
-            //    }
-            //    else
-            //    {
-            //        Console.WriteLine("Nessun Prodotto Trovato");
-            //    }
-            //}
         }
 
+        public void LandItem(Item item)
+        {
+            Console.WriteLine("Compila il modulo per il prestio");
 
+            Console.WriteLine("Nome: ");
+            string inputName = Console.ReadLine();
+            Console.WriteLine("Cognome: ");
+            string inputSurname = Console.ReadLine();
+            Console.WriteLine("Codice fiscale: ");
+            string inpuTaxCode = Console.ReadLine();
+            Console.WriteLine("Dal: ");
+            DateTime inputStartingDate = DateTime.Parse(Console.ReadLine());
+            Console.WriteLine("Al: ");
+            DateTime inputEndingDate = DateTime.Parse(Console.ReadLine());
 
+            Lendal newLendal = new Lendal(inputName, inputSurname, inpuTaxCode, inputStartingDate, inputEndingDate);
+            landals.Add(newLendal);
+
+            item.Available = false;
+
+        }
+
+        public void ReturnItem(Item item)
+        {
+            item.Available = true; 
+        }
     }
 }

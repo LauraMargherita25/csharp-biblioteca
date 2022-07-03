@@ -29,4 +29,6 @@ bibliotecaOnline.AddNewUser(utente2);
 User utente3 = new User("Verdi", "Luca", "luca@verdi.it", "forzajuve", 3973456263);
 bibliotecaOnline.AddNewUser(utente3);
 
+Lendal lendal1 = new Lendal("Gino", "Rossi", "QWEASD12Z34X567C", 2015-05-16, );
+
 bibliotecaOnline.OpenLibrary();
