@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace csharp_biblioteca
 {
-    internal class Dvd : Item
+    public class Dvd : Item
     {
         public string Sn
         {
@@ -25,6 +25,13 @@ namespace csharp_biblioteca
         {
             this.Sn = sn;
             this.RunningTime = runningTime;
+        }
+
+        public void PrintDvd()
+        {
+            Console.WriteLine("Titlo {0}", this.Sn);
+            Console.WriteLine("Titlo {0}", base.Title);
+            Console.WriteLine("Titlo {0}", base.Available);
         }
     }
 }

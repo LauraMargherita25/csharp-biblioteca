@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace csharp_biblioteca
 {
-    internal class Book : Item
+    public class Book : Item
     {
         public string Isbn
         {
@@ -25,9 +25,15 @@ namespace csharp_biblioteca
 
         public Book (string isbn, string title, int releaseYear, string section, bool available, int rack, string author, int nPage) : base(isbn, title, releaseYear, section, available, rack, author)
         {
-            this.Isbn = Isbn;
+            this.Isbn = isbn;
             this.NPage = nPage;
         }
 
+        public void PrintBooK()
+        {
+            Console.WriteLine("Titlo {0}", this.Isbn);
+            Console.WriteLine("Titlo {0}", base.Title);
+            Console.WriteLine("Titlo {0}", base.Available);
+        }
     }
 }

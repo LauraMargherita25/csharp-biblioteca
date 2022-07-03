@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace csharp_biblioteca
 {
-    internal class Library
+    public class Library
     {
         List<Item> products = new List<Item>();
         List<User> users = new List<User>();
@@ -40,49 +40,11 @@ namespace csharp_biblioteca
             {
                 this.LoginUser();
             }
-            else { 
-                this.MenuSignupOrLogin(); 
-            }
+            //else { 
+            //    this.MenuSignupOrLogin(); 
+            //}
         }
-
-        private void LoginUser()
-        {
-            Console.WriteLine("Email");
-            string inputEmail = Console.ReadLine();
-            Console.WriteLine("Password");
-            string inputPassword = Console.ReadLine();
-
-            foreach (User user in this.users)
-            {
-                if (user.Email == inputEmail && user.Password == inputPassword)
-                {
-                    Console.WriteLine("Ciao {0} {1}", user.Name, user.Surname);
-                    this.menuSearchItem();
-                    return;
-                }
-                else
-                {
-                    Console.WriteLine("Credenziali non valide");
-                    this.LoginUser();
-                }
-            }
-        }
-
-        private void menuSearchItem()
-        {
-            Console.WriteLine("Cerca un libro o un dvd");
-            string inputUserResearch = Console.ReadLine();
-
-            foreach(Item product in this.products)
-            {
-                if(inputUserResearch == product.Title)
-                {
-
-                }
-            }
-        }
-
-        private void SignupNewUser()
+        public void SignupNewUser()
         {
             Console.Write("Cognome: ");
             string inputSurname = Console.ReadLine();
@@ -97,7 +59,64 @@ namespace csharp_biblioteca
 
             User newUser = new User(inputSurname, inputNname, inputEmail, inputPassword, inputTelephone);
             users.Add(newUser);
+
+            Console.WriteLine("Ciao {0} {1}", inputNname, inputNname);
         }
+
+        public void LoginUser()
+        {
+            Console.WriteLine("Email");
+            string inputEmail = Console.ReadLine();
+            Console.WriteLine("Password");
+            string inputPassword = Console.ReadLine();
+            bool notFound = true;
+
+            do
+            {
+                foreach (User user in this.users)
+                {
+                    if (user.Email == inputEmail && user.Password == inputPassword)
+                    {
+                        notFound = false;
+                        Console.WriteLine("Ciao {0} {1}", user.Name, user.Surname);
+                    }
+                    
+                }
+
+                if (notFound)
+                {
+                    Console.WriteLine("Nessuno utente trovato, registrati!");
+                    this.SignupNewUser();
+                }
+                else
+                {
+                    this.menuSearchItem();
+                }
+            }
+            while (notFound);
+
+        }
+
+        public void menuSearchItem()
+        {
+            Console.WriteLine("Cerca un libro o un dvd");
+            string inputUserResearch = Console.ReadLine();
+
+            foreach (Item product in this.products)
+            {
+                if (inputUserResearch == product.Title)
+                {
+                    Console.WriteLine("Prodotto Trovato");
+                    product.PrintItem();
+                    return;
+                }
+                else
+                {
+                    Console.WriteLine(" Nessun Prodotto Trovato");
+                }
+            }
+        }
+
 
 
     }

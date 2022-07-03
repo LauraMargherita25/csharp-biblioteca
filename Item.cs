@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace csharp_biblioteca
 {
 
-    internal class Item
+    public class Item
     {
         public string Code { get; protected set; }
         public string Title { get; protected set; }
@@ -26,7 +26,14 @@ namespace csharp_biblioteca
             this.Available = available;
             this.Rack = rack;
             this.Author = author;
-        }   
+        }
 
+        public void PrintItem()
+        {
+            Console.WriteLine("Codice: {0}", this.Code);
+            Console.WriteLine("Titolo:{0}", this.Title);
+        }
+
+       
     }
 }

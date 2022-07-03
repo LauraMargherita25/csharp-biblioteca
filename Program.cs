@@ -27,8 +27,6 @@ bibliotecaOnline.AddNewUser(utente1);
 User utente2 = new User("Bianchi", "Rosa", "rosa@bianchi.it", "asdfqwer", 3452952398);
 bibliotecaOnline.AddNewUser(utente2);
 User utente3 = new User("Verdi", "Luca", "luca@verdi.it", "forzajuve", 3973456263);
-bibliotecaOnline.AddNewUser(utente1);
+bibliotecaOnline.AddNewUser(utente3);
 
 bibliotecaOnline.OpenLibrary();
-
-bibliotecaOnline.MenuSignupOrLogin();
