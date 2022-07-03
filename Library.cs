@@ -99,22 +99,58 @@ namespace csharp_biblioteca
 
         public void menuSearchItem()
         {
-            Console.WriteLine("Cerca un libro o un dvd");
-            string inputUserResearch = Console.ReadLine();
+            string[] menu = { "Visualizza dettagli prodotto", "Richiedi prestito", "Restituisci" };
+            string inputUserResearch;
+            bool notFound = true;
 
-            foreach (Item product in this.products)
+            do
             {
-                if (inputUserResearch == product.Title)
+                Console.WriteLine("Cerca un libro o un dvd");
+                inputUserResearch = Console.ReadLine();
+                foreach (Item product in this.products)
                 {
-                    Console.WriteLine("Prodotto Trovato");
-                    product.PrintItem();
-                    return;
+                    if(inputUserResearch == product.Title)
+                    {
+                        notFound = false;
+                        Console.WriteLine("Prodotto Trovato");
+                        for(int i = 0; i < menu.Length; i++)
+                        {
+                            Console.WriteLine("{0}. {1}", i + 1, menu[i]);
+                        }
+                        inputUserResearch = Console.ReadLine();
+                        if (inputUserResearch == "1")
+                        {
+                            product.PrintItem();
+                        } 
+                        else if (inputUserResearch == "2")
+                        {
+
+                        }
+                    }
                 }
-                else
+
+                if (notFound)
                 {
-                    Console.WriteLine(" Nessun Prodotto Trovato");
+                    Console.WriteLine("Nessun prodotto trovato, prova a cercare qualcosa'altro!");
                 }
-            }
+
+
+            }while (notFound);
+
+
+            //foreach (Item product in this.products)
+            //{
+            //    if (inputUserResearch == product.Title)
+            //    {
+            //        Console.WriteLine("Prodotto Trovato");
+            //        product.PrintItem();
+            //        return;
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("Nessun Prodotto Trovato");
+            //    }
+            //}
         }
 
 
